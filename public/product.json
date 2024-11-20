@@ -1,0 +1,27 @@
+[
+    {
+      "product_image": "https://i.ibb.co.com/j367GV7/istockphoto-1412240771-612x612.jpg",
+      "product_name": "Wireless Bluetooth Headphones",
+      "product_price": 49.99,
+      "product_description": "High-quality wireless Bluetooth headphones with noise cancellation and up to 20 hours of battery life."
+    },
+    {
+      "product_image": "https://i.ibb.co.com/Sn6ntdr/istockphoto-1146224652-612x612.jpg",
+      "product_name": "Smartwatch Fitness Tracker",
+      "product_price": 89.99,
+      "product_description": "A sleek smartwatch with fitness tracking features, heart rate monitoring, and water resistance."
+    },
+    {
+      "product_image": "https://i.ibb.co.com/KVvCmWw/NDC-410-front-camera-for-website.jpg",
+      "product_name": "4K Ultra HD Action Camera",
+      "product_price": 129.99,
+      "product_description": "Capture your adventures in stunning 4K resolution with this compact and durable action camera."
+    },
+    {
+      "product_image": "https://i.ibb.co.com/31crYsX/istockphoto-628619402-612x612.jpg",
+      "product_name": "Ergonomic Office Chair",
+      "product_price": 199.99,
+      "product_description": "Comfortable ergonomic office chair with adjustable height, lumbar support, and a breathable mesh back."
+    }
+  ]
+  

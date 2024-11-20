@@ -6,18 +6,27 @@ import '@smastrom/react-rating/style.css'
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { useEffect, useState } from "react";
 import { Rating } from "@smastrom/react-rating";
+import { useQuery } from '@tanstack/react-query';
+import { axiosPublic } from '../../hooks/useAxiosPublic';
+import LoadingSpinner from '../../components/shared/LoadingSpinner';
 
 const Testimonials = () => {
-    const [reviews, setReviews] = useState([]);
-    useEffect(() => {
-        fetch('https://bistro-boss-server-five-nu.vercel.app/reviews')
-            .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [])
+    
+    const {data: reviews, isLoading} = useQuery({
+        queryKey: ['reviews'],
+        queryFn: async () =>{
+            const {data} = await axiosPublic.get('/testimonial')
+            return data
+        }
+    })
+
+    if(isLoading) return <LoadingSpinner></LoadingSpinner>
+
+    console.log(reviews);
+
     return (
-        <section className="my-20">
+        <section className="my-10">
             {/* <SectionTitle>
                 subHeading=
                 heading=
@@ -26,7 +35,7 @@ const Testimonials = () => {
 
                 {
                     reviews.map(review => <SwiperSlide key={review._id}>
-                        <div className="my-16 mx-24 flex flex-col items-center">
+                        <div className="my-8 mx-24 flex flex-col items-center">
                             <Rating
                                 style={{ maxWidth: 180 }}
                                 value={review.rating}
