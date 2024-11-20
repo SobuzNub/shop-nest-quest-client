@@ -8,7 +8,7 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Register = () => {
 
-    const { createUser, setLoading, updateUserProfile, signInWithGoogle } = useAuth();
+    const { createUser, setLoading, updateUserProfile, signInWithGoogle, signInWithGithub } = useAuth();
     const navigate = useNavigate();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -38,10 +38,23 @@ const Register = () => {
         }
     }
 
-    const googleSignIn = async () => {
+    const handleGoogleSignIn = async () => {
         try {
             setLoading(true)
             await signInWithGoogle();
+            navigate('/')
+            toast.success('User Login Successfully')
+        } catch (err) {
+            console.log(err);
+            toast.error(err.message)
+        }
+    }
+
+    const handleGithubSignIn = async () => {
+        try {
+            setLoading(true)
+            // github login
+            await signInWithGithub();
             navigate('/')
             toast.success('User Login Successfully')
         } catch (err) {
@@ -190,8 +203,8 @@ const Register = () => {
 
                     <div className="md:flex gap-5 mt-5 items-center mx-auto w-3/4 text-center">
                         <h2 className="font-bold">Sign in with</h2>
-                        <button onClick={googleSignIn} className="btn"><span><FaGoogle /></span> Google</button>
-                        <button className="btn"><span><FaGithub /></span> Github</button>
+                        <button onClick={handleGoogleSignIn} className="btn"><span><FaGoogle /></span> Google</button>
+                        <button onClick={handleGithubSignIn} className="btn"><span><FaGithub /></span> Github</button>
                     </div>
 
                 </div>

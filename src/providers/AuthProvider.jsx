@@ -48,7 +48,7 @@ const AuthProvider = ({children}) => {
     // signIn with github
     const signInWithGithub = () =>{
         setLoading(true);
-        return signInWithPopup(gitHubProvider)
+        return signInWithPopup(auth, gitHubProvider)
     }
 
     // onAuthState change
