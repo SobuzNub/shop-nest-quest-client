@@ -10,6 +10,7 @@ const Register = () => {
 
     const { createUser, setLoading, updateUserProfile, signInWithGoogle, signInWithGithub } = useAuth();
     const navigate = useNavigate();
+    
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -32,6 +33,11 @@ const Register = () => {
             await updateUserProfile(data.name, data.photo)
             navigate('/')
             toast.success('User Created Successfully')
+
+            // save user data in db
+            // const {currentUser} = await axios.put(`${import.meta.env.VITE_API_URL}/users`, userData)
+            // return currentUser;
+
         } catch (err) {
             console.log(err);
             toast.error(err.message)
@@ -116,7 +122,7 @@ const Register = () => {
                             />
                             {errors.name && <p className="text-sm text-red-500 font-light">PhotoURL is Required</p>}
                         </div>
-                        <div className="form-control w-full">
+                        {/* <div className="form-control w-full">
                             <label className="block mb-2 text-sm font-medium text-gray-600">
                                 <span className="label-text">Role</span>
                             </label>
@@ -128,7 +134,7 @@ const Register = () => {
                                 <option value='admin'>Admin</option>
                             </select>
                             {errors.role && <p className="text-red-500 text-sm font-light">Role is Required</p>}
-                        </div>
+                        </div> */}
                         <div className='mt-4'>
                             <label
                                 className='block mb-2 text-sm font-medium text-gray-600 '

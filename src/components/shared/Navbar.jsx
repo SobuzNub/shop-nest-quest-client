@@ -1,6 +1,10 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import image from '../../assets/placeholder.jpg'
+import HostModal from "../Modal/HostRequestModal";
+import { useState } from "react";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 
 
@@ -8,6 +12,12 @@ const Navbar = () => {
 
     const { user, logout, setLoading } = useAuth();
     const navigate = useNavigate();
+    const [isOpen, setIsOpen] = useState(false);
+    const axiosSecure = useAxiosSecure();
+
+    const closeModal = () =>{
+        setIsOpen(false)
+    }
 
     const handleLogout = async () => {
         try {
@@ -18,6 +28,30 @@ const Navbar = () => {
         } catch (err) {
             console.log(err);
         }
+    }
+
+    const handleModal = async () =>{
+        console.log('i am in req to host');
+        const currentUser = {
+            email: user.email,
+            role: 'seller',
+            status: 'Requested'
+        }
+        try{
+            const {data} = await axiosSecure.put('/users', currentUser)
+            console.log(data);
+            if(data.modifiedCount > 0){
+                toast.success('Success! Please wait for admin confirmation')
+            }else{
+                toast.success('Success! Please wait for admin approval')
+            }
+        }catch(err){
+            console.log(err);
+            toast.error(err.message)
+        }finally{
+            closeModal();
+        }
+        
     }
 
 
@@ -66,6 +100,21 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <div className='hidden md:block'>
+                    {/* {!user && ( */}
+                    <button
+                        onClick={() => setIsOpen(true)}
+                        // disabled={!user}
+                        className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-300 py-3 px-4 text-sm font-semibold rounded-full flex transition gap-4'
+                    >
+                        Host your home
+                    </button>
+                    {/* )} */}
+                </div>
+                {/* modal */}
+
+                <HostModal isOpen={isOpen} closeModal={closeModal} handleModal={handleModal}></HostModal>
+
                 {user ? <div className="dropdown dropdown-bottom dropdown-end">
                     <div tabIndex={0} role="button" className="rounded-full">
                         <div className="w-10 rounded-full" title={user?.displayName || 'No Name'}>
