@@ -11,6 +11,9 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import ErrorPage from "../pages/ErrorPage";
 import DashboardLayout from "../layouts/DashboardLayout";
+import AddProduct from "../components/Dashboard/Seller/AddProduct";
+import MyListings from "../components/Dashboard/Seller/MyListings";
+import Profile from "../components/Dashboard/Common/Profile";
 
 
 export const router = createBrowserRouter([
@@ -47,6 +50,21 @@ export const router = createBrowserRouter([
     },
     {
       path: '/dashboard',
-      element: <DashboardLayout></DashboardLayout>
+      element: <DashboardLayout></DashboardLayout>,
+      children: [
+        {
+          index: true,
+          element: <Profile></Profile>
+        },
+        {
+          path: 'add-product',
+          element: <AddProduct></AddProduct>
+        },
+        {
+          path: 'my-listings',
+          element: <MyListings></MyListings>
+        },
+        
+      ]
     }
   ]);

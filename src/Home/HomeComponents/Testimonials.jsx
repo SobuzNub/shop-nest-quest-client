@@ -23,7 +23,7 @@ const Testimonials = () => {
 
     if(isLoading) return <LoadingSpinner></LoadingSpinner>
 
-    console.log(reviews);
+    // console.log(reviews);
 
     return (
         <section className="my-10">

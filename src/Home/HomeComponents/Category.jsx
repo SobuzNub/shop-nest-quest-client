@@ -18,7 +18,7 @@ const Category = () => {
 
     if(isLoading) return <LoadingSpinner></LoadingSpinner>
 
-    console.log(categories);
+    // console.log(categories);
 
     return (
         <div className="md:grid md:grid-cols-4 gap-6 my-12">

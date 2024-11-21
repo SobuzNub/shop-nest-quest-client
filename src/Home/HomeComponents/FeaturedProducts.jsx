@@ -18,7 +18,7 @@ const FeaturedProducts = () => {
 
     if(isLoading) return <LoadingSpinner></LoadingSpinner>
 
-    console.log(featured);
+    // console.log(featured);
 
 
     return (
