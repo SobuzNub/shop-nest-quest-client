@@ -3,7 +3,7 @@ import { GrPowerReset } from "react-icons/gr";
 
 const FilterBar = ({setBrand, setCategory, handleReset, uniqueBrand, uniqueCategory}) => {
     return (
-        <div className="bg-gray-200 h-full min-h-screen p-4 rounded-t-md">
+        <div className="bg-gray-200 md:h-full md:min-h-screen p-4 rounded-t-md">
             <div className="flex items-center gap-1">
                 <LuFilter size={24} />
                 <h2 className="text-xl font-semibold">Filters</h2>

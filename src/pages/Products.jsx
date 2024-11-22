@@ -58,17 +58,17 @@ const Products = () => {
         <div className="container mx-auto my-8">
             <h2 className="my-12 text-2xl font-semibold text-center font-mono">All Products</h2>
             {/* searching and sorting */}
-            <div className="lg:flex justify-between items-center w-full mb-6">
+            <div className="md:flex justify-between items-center md:w-full mb-6">
                 <SearchBar handleSearch={handleSearch}></SearchBar>
                 <SortByPrice setSort={setSort}></SortByPrice>
             </div>
             {/* content */}
-            <div className="grid grid-cols-12 gap-4">
-                <h2 className="col-span-2">
+            <div className="md:grid lg:grid-cols-12 gap-4">
+                <h2 className="md:col-span-2">
                     <FilterBar setBrand={setBrand} setCategory={setCategory} handleReset={handleReset} uniqueBrand={uniqueBrand} uniqueCategory={uniqueCategory}></FilterBar>
                 </h2>
                 {/* products */}
-                <div className="col-span-10">
+                <div className="md:col-span-10">
                     {
                         loading ? (
                             <LoadingSpinner></LoadingSpinner>
@@ -76,7 +76,7 @@ const Products = () => {
                             <>
                                 {
                                     products.length === 0 ? (
-                                        <div className="w-full h-full flex items-center justify-center gap-3">
+                                        <div className="md:w-full md:h-full md:flex items-center justify-center gap-3">
                                             <div>
                                             <LoadingSpinner></LoadingSpinner>
                                             </div>
