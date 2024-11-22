@@ -1,0 +1,147 @@
+[
+    {
+      "category": "Electronics",
+      "name": "Wireless Earbuds",
+      "price": 49.99,
+      "description": "High-quality sound with noise cancellation.",
+      "image": "https://i.ibb.co.com/s1Y95Gh/istockphoto-1204039347-612x612.jpg",
+      "brand": "TechSound"
+    },
+    {
+      "category": "Electronics",
+      "name": "Smartphone Stand",
+      "price": 15.99,
+      "description": "Adjustable and durable phone holder.",
+      "image": "https://i.ibb.co.com/7tyMSTf/51-Vxpmjhw7-L.jpg",
+      "brand": "HoldIt"
+    },
+    {
+      "category": "Home Decor",
+      "name": "Wooden Wall Clock",
+      "price": 29.99,
+      "description": "Stylish clock with a natural finish.",
+      "image": "https://i.ibb.co.com/zZB0FYH/istockphoto-1447105465-612x612.jpg",
+      "brand": "DecoStyle"
+    },
+    {
+      "category": "Home Decor",
+      "name": "Ceramic Vase",
+      "price": 19.99,
+      "description": "Elegant vase perfect for flowers.",
+      "image": "https://i.ibb.co.com/0s416jJ/51-EBHAIv7-ML.jpg0",
+      "brand": "CeramiCo"
+    },
+    {
+      "category": "Fitness",
+      "name": "Yoga Mat",
+      "price": 25.99,
+      "description": "Non-slip mat for all fitness levels.",
+      "image": "https://i.ibb.co.com/Y7G0fgn/istockphoto-149027826-612x612.jpg",
+      "brand": "FitFlex"
+    },
+    {
+      "category": "Fitness",
+      "name": "Resistance Bands",
+      "price": 12.99,
+      "description": "Set of 3 bands for versatile workouts.",
+      "image": "https://i.ibb.co.com/vdCfBZR/61rvi-NTNAVL-AC-UF1000-1000-QL80.jpg",
+      "brand": "PowerBands"
+    },
+    {
+      "category": "Accessories",
+      "name": "Leather Wallet",
+      "price": 34.99,
+      "description": "Compact wallet with multiple compartments.",
+      "image": "https://i.ibb.co.com/640W0wz/360-F-563277688-l-Qa-Xnd9lfq-Vl6-N3jiorukl-MNHf-B4-WXRF.jpg",
+      "brand": "WalletPro"
+    },
+    {
+      "category": "Accessories",
+      "name": "Sunglasses",
+      "price": 18.99,
+      "description": "UV-protected and trendy eyewear.",
+      "image": "https://i.ibb.co.com/4RLw57w/63ce5d1159a4e011b24298b3-iscrem-camera-sunglasses-video-glasses.jpg",
+      "brand": "SunShield"
+    },
+    {
+      "category": "Outdoor",
+      "name": "Camping Tent",
+      "price": 89.99,
+      "description": "Waterproof tent for 2-4 people.",
+      "image": "https://i.ibb.co.com/0tNP0Q3/thumb-1920-1376659.png",
+      "brand": "CampPro"
+    },
+    {
+      "category": "Outdoor",
+      "name": "Portable Grill",
+      "price": 45.99,
+      "description": "Lightweight grill for outdoor cooking.",
+      "image": "https://i.ibb.co.com/8dqk0CR/istockphoto-1151250865-612x612.jpg",
+      "brand": "GrillEase"
+    },
+    {
+      "category": "Wearables",
+      "name": "Fitness Tracker",
+      "price": 59.99,
+      "description": "Track your steps, calories, and heart rate.",
+      "image": "https://i.ibb.co.com/Sn6ntdr/istockphoto-1146224652-612x612.jpg",
+      "brand": "HealthTrack"
+    },
+    {
+      "category": "Wearables",
+      "name": "Smartwatch",
+      "price": 129.99,
+      "description": "Stylish smartwatch with multiple features.",
+      "image": "https://i.ibb.co.com/5FGJDJY/pexels-alexandr-borecky-128389-393047.jpg",
+      "brand": "SmartTime"
+    },
+    {
+      "category": "Musical Instruments",
+      "name": "Acoustic Guitar",
+      "price": 199.99,
+      "description": "Six-string guitar for beginners and experts.",
+      "image": "https://i.ibb.co.com/z7Txcrp/v2-6t27v-1h3en.jpg",
+      "brand": "MelodyWorks"
+    },
+    {
+      "category": "Musical Instruments",
+      "name": "Keyboard",
+      "price": 139.99,
+      "description": "61-key electronic keyboard with rhythms.",
+      "image": "https://i.ibb.co.com/JynZ1rB/81h-Qkn-Jy4-EL.jpg",
+      "brand": "KeyPlay"
+    },
+    {
+      "category": "Toys",
+      "name": "Remote Control Car",
+      "price": 39.99,
+      "description": "High-speed and durable RC car.",
+      "image": "https://i.ibb.co.com/8P0WVqk/51c-HJs6y4-KL-AC-UF1000-1000-QL80.jpg",
+      "brand": "Speedster"
+    },
+    {
+      "category": "Toys",
+      "name": "Building Blocks Set",
+      "price": 24.99,
+      "description": "Creative block set for kids.",
+      "image": "https://i.ibb.co.com/rp1mkjT/photo-1545558014-8692077e9b5c.jpg",
+      "brand": "BlockMaster"
+    },
+    {
+      "category": "Wearables",
+      "name": "Running Shoes",
+      "price": 69.99,
+      "description": "Comfortable and lightweight shoes for runners.",
+      "image": "https://i.ibb.co.com/m6G3s7p/istockphoto-1350560575-612x612.jpg",
+      "brand": "RunFast"
+    },
+    {
+      "category": "Fitness",
+      "name": "Dumbbell Set",
+      "price": 49.99,
+      "description": "Adjustable dumbbells for strength training.",
+      "image": "https://i.ibb.co.com/q780tz7/61ua-Gtkdv-QL-AC-UF894-1000-QL80.jpg",
+      "brand": "StrengthMax"
+    }
+  ]
+  
