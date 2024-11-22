@@ -4,7 +4,7 @@ import { useState } from 'react'
 import UpdateProductModal from '../../Modal/UpdateProductModal';
 
 
-const ProductDataRow = ({ product, refetch }) => {
+const ProductDataRow = ({ product, refetch, handleDelete }) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false)
@@ -56,7 +56,7 @@ const ProductDataRow = ({ product, refetch }) => {
           <span className='relative'>Delete</span>
         </button>
         {/* Delete modal */}
-        <DeleteModal isOpen={isOpen} closeModal={closeModal}></DeleteModal>
+        <DeleteModal isOpen={isOpen} closeModal={closeModal} handleDelete={handleDelete} id={product._id}></DeleteModal>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <button onClick={()=> setIsEditModalOpen(true)} className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>

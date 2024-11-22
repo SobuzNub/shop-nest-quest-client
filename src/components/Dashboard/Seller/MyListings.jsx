@@ -1,8 +1,9 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet-async'
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import ProductDataRow from '../TableRows/ProductDataRow';
+import toast from 'react-hot-toast';
 
 const MyListings = () => {
     const {user} = useAuth();
@@ -18,6 +19,29 @@ const MyListings = () => {
 
         }
     })
+
+
+    // delete 
+    const {mutateAsync} = useMutation({
+      mutationFn: async (id) =>{
+          const {data} = await axiosSecure.delete(`/room/${id}`)
+          return data;
+      },
+      onSuccess: data =>{
+          console.log(data);
+          refetch();
+          toast.success("Deleted Successfully!")
+      }
+  })
+
+  const handleDelete = async id =>{
+      console.log(id)
+      try{
+          await mutateAsync(id)
+      }catch(err){
+          console.log(err);
+      }
+  }
 
 
   return (
@@ -80,7 +104,7 @@ const MyListings = () => {
                 <tbody>
                 {/* Room row data */}
                     {
-                        products.map(product => <ProductDataRow key={product._id} product={product} refetch={refetch}></ProductDataRow>)
+                        products.map(product => <ProductDataRow key={product._id} product={product} refetch={refetch} handleDelete={handleDelete}></ProductDataRow>)
                     }
                 </tbody>
               </table>
