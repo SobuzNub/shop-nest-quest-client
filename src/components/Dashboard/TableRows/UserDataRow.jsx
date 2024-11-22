@@ -5,7 +5,7 @@ import { useMutation } from '@tanstack/react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 import useAuth from '../../../hooks/useAuth';
-const UserDataRow = ({ user, refetch }) => {
+const UserDataRow = ({ user, refetch, handleDeleteUser, id }) => {
     const {user: loggedInUser} = useAuth();
     const [isOpen, setIsOpen] = useState(false);
     const axiosSecure = useAxiosSecure()
@@ -77,7 +77,7 @@ const UserDataRow = ({ user, refetch }) => {
                 <UpdateUserModal isOpen={isOpen} setIsOpen={setIsOpen} user={user} modalHandler={modalHandler}></UpdateUserModal>
             </td>
             <td>
-                <button className='btn btn-sm bg-green-100 rounded-2xl'>Delete User</button>
+                <button onClick={()=>handleDeleteUser(id)} className='btn btn-sm bg-green-100 rounded-2xl'>Delete User</button>
             </td>
         </tr>
     )

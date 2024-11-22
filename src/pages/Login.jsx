@@ -1,5 +1,5 @@
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from '../assets/login.svg'
 import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
@@ -7,35 +7,37 @@ import toast from "react-hot-toast";
 
 const Login = () => {
 
-    const {signIn, setLoading, signInWithGoogle} = useAuth();
+    const { signIn, setLoading, signInWithGoogle } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state || '/'
 
-    const {register, handleSubmit, formState: {errors}} = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const onsubmit = async (data) =>{
-        try{
+    const onsubmit = async (data) => {
+        try {
             setLoading(true)
             // login user
             const result = await signIn(data.email, data.password)
             console.log(result);
-            navigate('/')
+            navigate(from)
             toast.success('User Login Successfully')
 
-        }catch(err){
+        } catch (err) {
             console.log(err);
             toast.error(err.message)
         }
     }
 
     // google sign in
-    const googleSignIn = async () =>{
-        try{
+    const googleSignIn = async () => {
+        try {
             setLoading(true)
             // google sign in
             await signInWithGoogle();
-            navigate('/')
+            navigate(from)
             toast.success('User Login Successfully')
-        }catch(err){
+        } catch (err) {
             console.log(err);
             toast.error(err.message)
         }
@@ -70,7 +72,7 @@ const Login = () => {
 
                         <span className='w-1/5 border-b dark:border-gray-400 lg:w-1/4'></span>
                     </div>
-                    <form onSubmit={handleSubmit(onsubmit)}> 
+                    <form onSubmit={handleSubmit(onsubmit)}>
                         <div className='mt-4'>
                             <label
                                 className='block mb-2 text-sm font-medium text-gray-600 '
@@ -84,7 +86,7 @@ const Login = () => {
                                 name='email'
                                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                                 type='email'
-                                {...register('email', {required: true})}
+                                {...register('email', { required: true })}
                             />
                             {errors.email && <p className="text-sm text-red-500 font-light">Email is Required</p>}
                         </div>
@@ -105,9 +107,9 @@ const Login = () => {
                                 name='password'
                                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                                 type='password'
-                                {...register('password', {required: true})}
+                                {...register('password', { required: true })}
                             />
-                             {errors.email && <p className="text-sm text-red-500 font-light">Password is Required</p>}
+                            {errors.email && <p className="text-sm text-red-500 font-light">Password is Required</p>}
                         </div>
                         <div className='mt-6'>
                             <button

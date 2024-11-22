@@ -104,7 +104,7 @@ const Navbar = () => {
                     {/* {!user && ( */}
                     <button
                         onClick={() => setIsOpen(true)}
-                        // disabled={!user}
+                        disabled={!user}
                         className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-300 py-3 px-4 text-sm font-semibold rounded-full flex transition gap-4'
                     >
                         Host your home
