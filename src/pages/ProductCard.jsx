@@ -1,6 +1,8 @@
+import useRole from "../hooks/useRole";
 
 
 const ProductCard = ({ product }) => {
+    const [role] = useRole();
     return (
         <div className="rounded-t-md shadow-md">
             <figure>
@@ -15,7 +17,7 @@ const ProductCard = ({ product }) => {
                 <h2 className="text-sm">Price: ${product?.price}</h2>
                 <p className="text-xs">{product?.description}</p>
                 <div className="mt-2">
-                    <button className="btn btn-sm w-full">Add to wishlist</button>
+                    <button disabled={role === 'seller' && 'admin'} className="btn btn-sm w-full">Add to wishlist</button>
                 </div>
             </div>
         </div>

@@ -17,6 +17,7 @@ import Profile from "../components/Dashboard/Common/Profile";
 import WishList from "../components/Dashboard/Buyer/WishList";
 import ManageUsers from "../components/Dashboard/Admin/ManageUsers";
 import PrivateRoute from "./PrivateRoute";
+import UpdateProduct from "../components/Dashboard/Seller/UpdateProduct";
 
 
 export const router = createBrowserRouter([
@@ -92,6 +93,7 @@ export const router = createBrowserRouter([
             <ManageUsers></ManageUsers>
           </PrivateRoute>
       },
+      
 
     ]
   }
