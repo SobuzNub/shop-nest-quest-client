@@ -16,6 +16,8 @@ const Products = () => {
     const [sort, setSort] = useState('asc')
     const [brand, setBrand] = useState('')
     const [category, setCategory] = useState('')
+    const [uniqueBrand, setUniqueBrand] = useState([]);
+    const [uniqueCategory, setUniqueCategory] = useState([]);
 
     // console.log(category, search, sort, brand);
 
@@ -25,7 +27,10 @@ const Products = () => {
         const fetch = async () => {
             await axios.get(`${import.meta.env.VITE_API_URL}/all-products?name=${search}&sort=${sort}&brand=${brand}&category=${category}`)
                 .then(res => {
-                    setProducts(res.data)
+                    console.log(res.data);
+                    setProducts(res.data.products)
+                    setUniqueBrand(res.data.brands)
+                    setUniqueCategory(res.data.categories)
                     setLoading(false)
                 })
         }
@@ -50,7 +55,7 @@ const Products = () => {
 
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto my-8">
             <h2 className="my-12 text-2xl font-semibold text-center font-mono">All Products</h2>
             {/* searching and sorting */}
             <div className="lg:flex justify-between items-center w-full mb-6">
@@ -60,7 +65,7 @@ const Products = () => {
             {/* content */}
             <div className="grid grid-cols-12 gap-4">
                 <h2 className="col-span-2">
-                    <FilterBar setBrand={setBrand} setCategory={setCategory} handleReset={handleReset}></FilterBar>
+                    <FilterBar setBrand={setBrand} setCategory={setCategory} handleReset={handleReset} uniqueBrand={uniqueBrand} uniqueCategory={uniqueCategory}></FilterBar>
                 </h2>
                 {/* products */}
                 <div className="col-span-10">
