@@ -80,7 +80,7 @@ const Products = () => {
                                             <div>
                                             <LoadingSpinner></LoadingSpinner>
                                             </div>
-                                            <h1 className="text-3xl font-bold font-mono text-red-600">No Product Available here</h1>
+                                            <h1 className="text-3xl font-bold font-mono text-green-600">No Product Available here</h1>
                                             
                                         </div>
                                     ) : (

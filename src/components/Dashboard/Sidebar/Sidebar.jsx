@@ -1,16 +1,19 @@
 import { useState } from 'react'
 import { GrLogout } from 'react-icons/gr'
-import { BsFillHouseAddFill } from 'react-icons/bs'
 import { AiOutlineBars } from 'react-icons/ai'
 import useAuth from '../../../hooks/useAuth'
 import { Link } from 'react-router-dom'
-import { MdHomeWork } from 'react-icons/md'
 import MenuItem from './Menu/MenuItem'
 import { FcSettings } from 'react-icons/fc'
+import SellerMenu from './Menu/SellerMenu'
+import useRole from '../../../hooks/useRole'
+import BuyerMenu from './Menu/BuyerMenu'
+import AdminMenu from './Menu/AdminMenu'
 
 const Sidebar = () => {
     const { logOut } = useAuth()
-    const [isActive, setActive] = useState(false)
+    const [isActive, setActive] = useState(false);
+    const [role, isLoading] = useRole();
 
     // Sidebar Responsive Handler
     const handleToggle = () => {
@@ -65,21 +68,9 @@ const Sidebar = () => {
                             ></MenuItem>
 
 
-                            {/* Add product */}
-
-                            <MenuItem
-                                label='Add Product'
-                                address='add-product'
-                                icon={BsFillHouseAddFill}
-                            ></MenuItem>
-
-                            {/* My Listing */}
-
-                            <MenuItem
-                                label='My Listings'
-                                address='my-listings'
-                                icon={MdHomeWork}
-                            ></MenuItem>
+                            {role === 'buyer' && <BuyerMenu></BuyerMenu>}
+                            {role === 'seller' && <SellerMenu></SellerMenu>}
+                            {role === 'admin' && <AdminMenu></AdminMenu>}
                             
                         </nav>
                     </div>

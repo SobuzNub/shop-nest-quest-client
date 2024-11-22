@@ -14,6 +14,8 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import AddProduct from "../components/Dashboard/Seller/AddProduct";
 import MyListings from "../components/Dashboard/Seller/MyListings";
 import Profile from "../components/Dashboard/Common/Profile";
+import WishList from "../components/Dashboard/Buyer/WishList";
+import ManageUsers from "../components/Dashboard/Admin/ManageUsers";
 
 
 export const router = createBrowserRouter([
@@ -63,6 +65,14 @@ export const router = createBrowserRouter([
         {
           path: 'my-listings',
           element: <MyListings></MyListings>
+        },
+        {
+          path: 'my-wishlist',
+          element: <WishList></WishList>
+        },
+        {
+          path: 'manage-users',
+          element: <ManageUsers></ManageUsers>
         },
         
       ]
