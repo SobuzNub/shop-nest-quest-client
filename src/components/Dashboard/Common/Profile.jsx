@@ -1,6 +1,6 @@
 import useAuth from '../../../hooks/useAuth'
 import useRole from '../../../hooks/useRole';
-import LoadingSpinner from '../../shared/LoadingSpinner';
+import LoadingSpinner from '../../Shared/LoadingSpinner';
 // import { Helmet } from 'react-helmet-async'
 
 const Profile = () => {

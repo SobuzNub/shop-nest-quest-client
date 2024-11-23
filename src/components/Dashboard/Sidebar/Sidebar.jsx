@@ -14,11 +14,14 @@ const Sidebar = () => {
     const { logOut } = useAuth()
     const [isActive, setActive] = useState(false);
     const [role, isLoading] = useRole();
+    // const [loading, setLoading] = useState(true);
 
     // Sidebar Responsive Handler
     const handleToggle = () => {
         setActive(!isActive)
     }
+
+
     return (
         <>
             {/* Small Screen Navbar */}
@@ -71,7 +74,7 @@ const Sidebar = () => {
                             {role === 'buyer' && <BuyerMenu></BuyerMenu>}
                             {role === 'seller' && <SellerMenu></SellerMenu>}
                             {role === 'admin' && <AdminMenu></AdminMenu>}
-                            
+
                         </nav>
                     </div>
                 </div>
