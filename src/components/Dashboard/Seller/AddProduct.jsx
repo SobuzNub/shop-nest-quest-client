@@ -96,14 +96,14 @@ const AddProduct = () => {
                         <select defaultValue="default" {...register('category', { required: true })}
                             className="select select-bordered w-full">
                             <option disabled value="default">Select a Category</option>
-                            <option value="electronics">Electronics</option>
-                            <option value="homeDecor">Home Decor</option>
-                            <option value="fitness">Fitness</option>
-                            <option value="accessories">Accessories</option>
-                            <option value="outdoor">Outdoor</option>
-                            <option value="wearables">Wearables</option>
-                            <option value="musicalInstruments">Musical Instruments</option>
-                            <option value="toys">Toys</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Home Decor">Home Decor</option>
+                            <option value="Fitness">Fitness</option>
+                            <option value="Accessories">Accessories</option>
+                            <option value="Outdoor">Outdoor</option>
+                            <option value="Wearables">Wearables</option>
+                            <option value="Musical Instruments">Musical Instruments</option>
+                            <option value="Toys">Toys</option>
                         </select>
                     </div>
 
@@ -116,17 +116,17 @@ const AddProduct = () => {
                         <select defaultValue="default" {...register('brand', { required: true })}
                             className="select select-bordered w-full">
                             <option disabled value="default">Select a Brand</option>
-                            <option value="techSound">TechSound</option>
-                            <option value="holdIt">HoldIt</option>
-                            <option value="dcoStyle">DecoStyle</option>
-                            <option value="ceramiCo">CeramiCo</option>
-                            <option value="fitFlex">FitFlex</option>
-                            <option value="powerBands">PowerBands</option>
-                            <option value="walletPro">WalletPro</option>
-                            <option value="sunShield">SunShield</option>
-                            <option value="campPro">CampPro</option>
-                            <option value="grillEase">GrillEase</option>
-                            <option value="healthTrack">HealthTrack</option>
+                            <option value="TechSound">TechSound</option>
+                            <option value="HoldIt">HoldIt</option>
+                            <option value="DecoStyle">DecoStyle</option>
+                            <option value="CeramiCo">CeramiCo</option>
+                            <option value="FitFlex">FitFlex</option>
+                            <option value="PowerBands">PowerBands</option>
+                            <option value="WalletPro">WalletPro</option>
+                            <option value="SunShield">SunShield</option>
+                            <option value="CampPro">CampPro</option>
+                            <option value="GrillEase">GrillEase</option>
+                            <option value="HealthTrack">HealthTrack</option>
                         </select>
                     </div>
 

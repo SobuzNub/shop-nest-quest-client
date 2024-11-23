@@ -17,7 +17,9 @@ import Profile from "../components/Dashboard/Common/Profile";
 import WishList from "../components/Dashboard/Buyer/WishList";
 import ManageUsers from "../components/Dashboard/Admin/ManageUsers";
 import PrivateRoute from "./PrivateRoute";
-import UpdateProduct from "../components/Dashboard/Seller/UpdateProduct";
+import AdminRoute from "./AdminRoute";
+import SellerRoute from "./SellerRoute";
+
 
 
 export const router = createBrowserRouter([
@@ -68,16 +70,20 @@ export const router = createBrowserRouter([
       {
         path: 'add-product',
         element:
-          <PrivateRoute>
-            <AddProduct></AddProduct>
-          </PrivateRoute>
+          <SellerRoute>
+            <PrivateRoute>
+              <AddProduct></AddProduct>
+            </PrivateRoute>
+          </SellerRoute>
       },
       {
         path: 'my-listings',
         element:
-          <PrivateRoute>
-            <MyListings></MyListings>
-          </PrivateRoute>
+          <SellerRoute>
+            <PrivateRoute>
+              <MyListings></MyListings>
+            </PrivateRoute>
+          </SellerRoute>
       },
       {
         path: 'my-wishlist',
@@ -89,11 +95,13 @@ export const router = createBrowserRouter([
       {
         path: 'manage-users',
         element:
-          <PrivateRoute>
-            <ManageUsers></ManageUsers>
-          </PrivateRoute>
+          <AdminRoute>
+            <PrivateRoute>
+              <ManageUsers></ManageUsers>
+            </PrivateRoute>
+          </AdminRoute>
       },
-      
+
 
     ]
   }

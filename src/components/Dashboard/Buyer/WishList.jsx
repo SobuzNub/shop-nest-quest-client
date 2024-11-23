@@ -1,8 +1,29 @@
 
 import { Helmet } from 'react-helmet-async'
 import BookingDataRow from '../TableRows/BookingDataRow'
+import useAuth from '../../../hooks/useAuth'
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
+import LoadingSpinner from '../../shared/LoadingSpinner';
 
 const MyBookings = () => {
+
+  const {user} = useAuth();
+  const axiosSecure= useAxiosSecure();
+
+  const {data: wishData, refetch, isLoading} = useQuery({
+    queryKey: ['wishData'],
+    queryFn: async () =>{
+      const {data} = await axiosSecure.get(`/wish/${user?.email}`)
+      return data
+    }
+  })
+
+  console.log(wishData);
+
+  if(isLoading) return <LoadingSpinner></LoadingSpinner>
+
+
   return (
     <>
       <Helmet>
@@ -38,13 +59,13 @@ const MyBookings = () => {
                       scope='col'
                       className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                     >
-                      From
+                      Category
                     </th>
                     <th
                       scope='col'
                       className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                     >
-                      To
+                      Brand
                     </th>
                     <th
                       scope='col'
@@ -56,7 +77,10 @@ const MyBookings = () => {
                 </thead>
                 <tbody>
                     {/* Table Row Data */}
-                    <BookingDataRow></BookingDataRow>
+                    {
+                      wishData.map(wish => <BookingDataRow key={wish._id} wish={wish} refetch={refetch}></BookingDataRow>)
+                    }
+                    
                     </tbody>
               </table>
             </div>

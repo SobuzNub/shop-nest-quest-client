@@ -3,12 +3,13 @@ import UserDataRow from '../TableRows/UserDataRow'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import useAxiosSecure from '../../../hooks/useAxiosSecure'
 import toast from 'react-hot-toast'
+import LoadingSpinner from '../../Shared/LoadingSpinner'
 
 const ManageUsers = () => {
 
     const axiosSecure = useAxiosSecure();
 
-    const { data: users, refetch } = useQuery({
+    const { data: users, refetch, isLoading } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const { data } = await axiosSecure.get('/users');
@@ -40,6 +41,8 @@ const ManageUsers = () => {
             console.log(err);
         }
     }
+
+    if(isLoading) return <LoadingSpinner></LoadingSpinner>
 
     return (
         <>

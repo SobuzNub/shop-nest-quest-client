@@ -1,23 +1,66 @@
+
+import { useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 import useRole from "../hooks/useRole";
+import toast from "react-hot-toast";
 
 
 const ProductCard = ({ product }) => {
+
+    const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
+    const navigate = useNavigate();
+    const { _id, image, category, name, brand, description, price } = product;
+
+    const handleAddToWishList = async food => {
+        console.log(food);
+        const wishItem = {
+            productId: _id,
+            email: user.email,
+            photoURL: user.photoURL,
+            displayName: user.displayName,
+            name,
+            image,
+            category,
+            brand,
+            price,
+            description
+        }
+
+        try {
+            const result = await axiosSecure.post('/wishlist', wishItem)
+            console.log(result);
+            navigate('/dashboard/my-wishlist')
+            toast.success('Product Add To WishList')
+        } catch (err) {
+            console.log(err);
+            toast.error(err.message)
+        }
+
+
+
+    }
+
+   
+
+
     const [role] = useRole();
     return (
         <div className="rounded-t-md shadow-md">
             <figure>
                 <img className="rounded-t-md object-cover w-full h-60"
-                    src={product?.image}
+                    src={image}
                     alt="Shoes" />
             </figure>
             <div className="p-2">
-                <h2 className="text-xl font-semibold">Name: {product?.name}</h2>
-                <h2 className="text-lg font-semibold">{product?.category}</h2>
-                <h2 className="">{product?.brand}</h2>
-                <h2 className="text-sm">Price: ${product?.price}</h2>
-                <p className="text-xs">{product?.description}</p>
+                <h2 className="text-xl font-semibold">Name: {name}</h2>
+                <h2 className="text-lg font-semibold">{category}</h2>
+                <h2 className="">{brand}</h2>
+                <h2 className="text-sm">Price: ${price}</h2>
+                <p className="text-xs">{description}</p>
                 <div className="mt-2">
-                    <button disabled={role === 'seller' && 'admin'} className="btn btn-sm w-full">Add to wishlist</button>
+                    <button onClick={() => handleAddToWishList(product)} disabled={role === 'seller' && 'admin'} className="btn btn-sm w-full">Add to wishlist</button>
                 </div>
             </div>
         </div>
