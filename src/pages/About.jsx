@@ -2,7 +2,11 @@
 
 // import team from '../../assets/about-banner-three.png'
 
+import useRole from "../hooks/useRole";
+
 const Extra2 = () => {
+const [role] = useRole();
+console.log(role);
     return (
         <section className=" mt-20  dark:bg-gray-100 dark:text-gray-800 my-12 min-h-screen">
             <div className="container border rounded-xl border-red-600 flex gap-3 flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">

@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 
 const ProductCard = ({ product }) => {
-
+    
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();

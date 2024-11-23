@@ -24,7 +24,7 @@ const Contact = () => {
 			<label  className="text-sm">Message</label>
 			<textarea id="message" rows="3" className="w-full p-3 rounded "></textarea>
 		</div>
-		<button type="submit" className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-green-500 hover:bg-green-400 text-white transition-all">Send Message</button>
+		<button type="submit" className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-green-500 hover:bg-green-400 text-white transition-">Send Message</button>
 	</form>
 </div>
         </div>
