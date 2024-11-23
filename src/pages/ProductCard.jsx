@@ -1,5 +1,5 @@
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import useRole from "../hooks/useRole";
@@ -37,31 +37,29 @@ const ProductCard = ({ product }) => {
             console.log(err);
             toast.error(err.message)
         }
-
-
-
     }
-
-   
 
 
     const [role] = useRole();
     return (
         <div className="rounded-t-md shadow-md">
-            <figure>
-                <img className="rounded-t-md object-cover w-full h-60"
-                    src={image}
-                    alt="Shoes" />
-            </figure>
-            <div className="p-2">
-                <h2 className="text-xl font-semibold">Name: {name}</h2>
-                <h2 className="text-lg font-semibold">{category}</h2>
-                <h2 className="">{brand}</h2>
-                <h2 className="text-sm">Price: ${price}</h2>
-                <p className="text-xs">{description}</p>
-                <div className="mt-2">
-                    <button onClick={() => handleAddToWishList(product)} disabled={role === 'seller' && 'admin'} className="btn btn-sm w-full">Add to wishlist</button>
+            <Link to={`/productDetails/${_id}`}>
+                <figure>
+                    <img className="rounded-t-md object-cover w-full h-60"
+                        src={image}
+                        alt="Shoes" />
+                </figure>
+                <div className="p-2">
+                    <h2 className="text-xl font-semibold">Name: {name}</h2>
+                    <h2 className="text-lg font-semibold">{category}</h2>
+                    <h2 className="">{brand}</h2>
+                    <h2 className="text-sm">Price: ${price}</h2>
+                    <p className="text-xs">{description}</p>
+
                 </div>
+            </Link>
+            <div className="mt-2">
+                <button onClick={() => handleAddToWishList(product)} disabled={role === 'seller' && 'admin'} className="btn btn-sm w-full rounded-none p-2">Add to wishlist</button>
             </div>
         </div>
     );

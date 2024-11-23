@@ -19,6 +19,7 @@ import ManageUsers from "../components/Dashboard/Admin/ManageUsers";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import SellerRoute from "./SellerRoute";
+import ProductDetails from "../pages/ProductDetails";
 
 
 
@@ -46,13 +47,16 @@ export const router = createBrowserRouter([
       },
       {
         path: '/about',
-        element: <PrivateRoute>
+        element:
           <About></About>
-        </PrivateRoute>
       },
       {
         path: '/contact',
         element: <Contact></Contact>
+      },
+      {
+        path: '/productDetails/:id',
+        element: <ProductDetails></ProductDetails>
       }
     ]
   },
