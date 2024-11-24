@@ -41,6 +41,7 @@ const ProductCard = ({ product }) => {
 
 
     const [role] = useRole();
+    // console.log(role);
     return (
         <div className="rounded-t-md shadow-md">
             <Link to={`/productDetails/${_id}`}>
@@ -59,7 +60,7 @@ const ProductCard = ({ product }) => {
                 </div>
             </Link>
             <div className="mt-2">
-                <button onClick={() => handleAddToWishList(product)} disabled={role === 'seller' && 'admin'} className="btn btn-sm w-full rounded-none p-2">Add to wishlist</button>
+                <button onClick={() => handleAddToWishList(product)} disabled={role === 'admin' || 'seller'} className="btn btn-sm w-full rounded-none p-2">Add to wishlist</button>
             </div>
         </div>
     );

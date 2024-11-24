@@ -21,10 +21,10 @@ const ProductDetails = () => {
     return (
         <div>
             <p className="text-3xl font-semibold font-mono text-center mt-8 text-green-500">Product Details</p>
-            <div className="rounded-t-md shadow-md w-[600px] mx-auto mt-36">
+            <div className="rounded-t-md shadow-md md:w-[600px] mx-auto mt-36">
             <div>
                 <figure>
-                    <img className="rounded-t-md object-cover w-[300px] h-60 mx-auto"
+                    <img className="rounded-t-md object-cover md:w-[300px] md:h-60 mx-auto"
                         src={product?.image}
                         alt="Shoes" />
                 </figure>
